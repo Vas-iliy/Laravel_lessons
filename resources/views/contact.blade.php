@@ -10,6 +10,8 @@
 <body>
 <form action="{{route('contact2')}}" method="post">
     @csrf
+    {{--{{method_field('PUT')}}--}}
+    @method('PUT')
     <input type="text" name="name">
     <input type="email" name="email">
     <button type="submit">Submit</button>

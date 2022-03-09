@@ -11,13 +11,31 @@
 <h1>Список постов</h1>
 <ul>
     <li>
-        <a href="">Post1</a>
+        <a href="{{route('posts.show', ['post' => 1])}}">Post1</a>
+        <a href="{{route('posts.edit', ['post' => 1])}}">Edit</a>
+        <form action="{{route('posts.destroy', ['post' => 1])}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit">DELETE</button>
+        </form>
     </li>
     <li>
-        <a href="">Post2</a>
+        <a href="{{route('posts.show', ['post' => 2])}}">Post2</a>
+        <a href="{{route('posts.edit', ['post' => 2])}}">Edit</a>
+        <form action="{{route('posts.destroy', ['post' => 2])}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit">DELETE</button>
+        </form>
     </li>
     <li>
-        <a href="">Post3</a>
+        <a href="{{route('posts.show', ['post' => 3])}}">Post3</a>
+        <a href="{{route('posts.edit', ['post' => 3])}}">Edit</a>
+        <form action="{{route('posts.destroy', ['post' => 3])}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit">DELETE</button>
+        </form>
     </li>
 </ul>
 </body>

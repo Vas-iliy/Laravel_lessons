@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Country;
 use App\Post;
 use Illuminate\Support\Facades\DB;
 
@@ -42,10 +43,37 @@ class HomeController extends Controller
             'city.CountryCode', '=', 'country.Code')->orderBy('city.ID')->get();
         dd($data);*/
 
-        $post = new Post();
+        //insert from model
+        /*$post = new Post();
         $post->title = 'State 1';
-        //$post->content = 'Content State 1';
+        $post->content = 'Content State 1';
         $post->save();
+
+        Post::query()->create(['title' => 'Post', 'content' => 'new Content']);
+
+        $post = new Post();
+        $post->fill(['title' => 'Post2', 'content' => 'new Content 2']);
+        $post->save();*/
+
+        //select from model
+        /*$data = Country::all();
+        $data = Country::query()->limit(5)->get();
+        dd($data);*/
+
+        //update model
+        /*$post = Post::query()->find(4);
+        $post->content = 'allalal';
+        $post->save();
+
+        Post::query()->where('id', '>', '2')->update(['updated_at' => NOW()]);*/
+
+        //delete model
+        /*$post = Post::query()->find(4);
+        $post->delete();
+
+        Post::destroy(3);*/
+
+
         return view('home');
     }
 

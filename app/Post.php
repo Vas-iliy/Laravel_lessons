@@ -17,4 +17,6 @@ class Post extends Model
     /*protected $attributes = [
       'content' => 'Lorem ipsu,'
     ];*/
+
+    protected $fillable = ['title', 'content'];
 }

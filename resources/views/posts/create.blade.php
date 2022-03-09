@@ -5,20 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Posts</title>
+    <title>Create</title>
 </head>
 <body>
-<h1>Список постов</h1>
-<ul>
-    <li>
-        <a href="">Post1</a>
-    </li>
-    <li>
-        <a href="">Post2</a>
-    </li>
-    <li>
-        <a href="">Post3</a>
-    </li>
-</ul>
+<form action="{{route('posts.store')}}" method="post">
+    @csrf
+    <input type="text" name="title">
+    <button type="submit">Submit</button>
+</form>
 </body>
 </html>

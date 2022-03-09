@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 //тренировка
 /*Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 Route::get('/about', function () {
    return '<h1>About Page</h1>';
 });*/
@@ -23,23 +23,23 @@ Route::post('/send-email', function () {
 });*/
 
 //менование и редирект
-Route::match(['post', 'get'], '/contact', function () {
+/*Route::match(['post', 'get'], '/contact', function () {
    return view('/contact');
 })->name('contact2');
 Route::view('/test', 'test', ['test' => 'Test Data']);
 Route::redirect('/about', 'contact');
-Route::permanentRedirect('/test', '/contact');
+Route::permanentRedirect('/test', '/contact');*/
 
 // можно записать эти условия в route service provider
 /*Route::get('/post/{id}/{slug}', function ($id, $slug) {
     return 'post' . $id . "/$slug";
 })->where(['id' => '[0-9]+', 'slug' => '[a-z0-9-]+']);
-Route::get('/post/{id}/{slug}', function ($id, $slug) {
+Route::get('/post/{id}/{slug?}', function ($id, $slug = '') {
     return 'post' . $id . "/$slug";
 });*/
 
 //группировка
-/*Route::prefix('admin')->group(function () {
+/*Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/posts', function () {
         return 'Posts list';
     });
@@ -49,4 +49,10 @@ Route::get('/post/{id}/{slug}', function ($id, $slug) {
     Route::get('/post/{id}/edit', function ($id) {
         return 'Post Update' . $id;
     });
+});*/
+
+//редирект на страницы исключений
+/*Route::fallback(function () {
+   //return redirect()->route('home');
+    abort(404, 'oops');
 });*/

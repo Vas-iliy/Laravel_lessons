@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -41,6 +42,10 @@ class HomeController extends Controller
             'city.CountryCode', '=', 'country.Code')->orderBy('city.ID')->get();
         dd($data);*/
 
+        $post = new Post();
+        $post->title = 'State 1';
+        //$post->content = 'Content State 1';
+        $post->save();
         return view('home');
     }
 

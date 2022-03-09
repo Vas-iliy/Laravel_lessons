@@ -20,3 +20,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/about', function () {
+   return '<h1>About Page</h1>';
+});
+
+/*Route::get('/contact', function () {
+   return view('/contact');
+});
+
+Route::post('/send-email', function () {
+   return 'send';
+});*/
+
+Route::match(['post', 'get'], '/contact', function () {
+   return view('/contact');
+});

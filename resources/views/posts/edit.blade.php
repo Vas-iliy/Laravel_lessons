@@ -8,7 +8,7 @@
     <title>Edit</title>
 </head>
 <body>
-<form action="{{route('posts.update', ['post' => $id])}}" method="post">
+<form action="{{route('posts.update', ['id' => $id])}}" method="post">
     @csrf
     @method('PUT')
     <input type="text" name="title">

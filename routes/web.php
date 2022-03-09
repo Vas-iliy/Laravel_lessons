@@ -62,4 +62,6 @@ Route::get('/test', 'HomeController@test');
 Route::get('/test2', 'Test\TestController@index');
 Route::get('/page/{slug}', 'PageController@show');
 
-Route::resource('/posts', 'PostController');
+Route::resource('/posts', 'PostController', ['parameters' => [
+    'posts' => 'id'
+]]);

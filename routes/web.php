@@ -52,7 +52,12 @@ Route::get('/post/{id}/{slug?}', function ($id, $slug = '') {
 });*/
 
 //редирект на страницы исключений
-/*Route::fallback(function () {
+Route::fallback(function () {
    //return redirect()->route('home');
     abort(404, 'oops');
-});*/
+});
+
+Route::get('/', 'HomeController@index');
+Route::get('/test', 'HomeController@test');
+Route::get('/test2', 'Test\TestController@index');
+Route::get('/page/{slug}', 'PageController@show');

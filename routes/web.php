@@ -35,4 +35,8 @@ Route::post('/send-email', function () {
 
 Route::match(['post', 'get'], '/contact', function () {
    return view('/contact');
-});
+})->name('contact2');
+
+Route::view('/test', 'test', ['test' => 'Test Data']);
+Route::redirect('/about', 'contact');
+Route::permanentRedirect('/test', '/contact');

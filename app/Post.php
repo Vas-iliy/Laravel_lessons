@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -28,5 +29,15 @@ class Post extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = Str::title($value);
+    }
+
+    public function getTitleAttribute($value)
+    {
+        return Str::upper($value);
     }
 }

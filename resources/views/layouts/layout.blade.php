@@ -38,6 +38,11 @@
                 <strong>Album</strong>
             </a>
             <a href="{{route('post.create')}}">Create</a>
+            <a href="{{route('send')}}">Send</a>
+            <a href="{{route('register.create')}}">Registration</a>
+            @php
+            dump(\Illuminate\Support\Facades\Auth::check())
+            @endphp
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

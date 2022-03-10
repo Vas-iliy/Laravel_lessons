@@ -72,4 +72,32 @@ Route::get('/create', 'HomeController@create')->name('post.create');
 Route::post('/store', 'HomeController@store')->name('post.store');
 
 Route::get('/page/about', 'PageController@show')->name('page.about');
+
+//mail
 Route::match(['get', 'post'], '/send', 'ContactController@send')->name('send');
+
+//Auth
+Route::get('/register', 'UserController@register')->name('register.create');
+Route::post('/register', 'UserController@store')->name('register.store');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

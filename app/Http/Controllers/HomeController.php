@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Country;
 use App\Post;
 use App\Rubric;
+use App\Tag;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -86,6 +87,23 @@ class HomeController extends Controller
         $post = Post::query()->find(2);
         dump($post->title, $post->rubric->title);*/
 
+        //ленивая и жадная загрузка
+        /*$posts = Post::query()->with('rubric')->where('id', '>', 1)->get();
+        foreach ($posts as $post) {
+            dump($post->title, $post->rubric->title);
+        }*/
+
+        //Many to Many
+        /*$post = Post::query()->find(5);
+        dump($post->title);
+        foreach ($post->tags as $tag) {
+            dump($tag->title);
+        }
+        $tag = Tag::query()->find(4);
+        dump($tag->title);
+        foreach ($tag->posts as $post) {
+            dump($post->title);
+        }*/
         return view('home');
     }
 

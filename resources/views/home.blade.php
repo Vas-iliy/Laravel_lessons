@@ -34,6 +34,9 @@
                     </div>
                 </div>
             @endforeach
+            <div class="col-md-12">
+                {{$posts->appends(['test' => request()->test])->links('vendor.pagination.default')}}
+            </div>
         </div>
     </div>
 </div>

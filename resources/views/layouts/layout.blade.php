@@ -40,7 +40,12 @@
             <a href="{{route('post.create')}}">Create</a>
             <a href="{{route('send')}}">Send</a>
             @auth
-                <a href="#">{{auth()->user()->name}}</a>
+                <a href="#">
+                    {{auth()->user()->name}}
+                    @if(auth()->user()->avatar)
+                        <img src="{{asset('storage/'.auth()->user()->avatar )}}" alt="" height="40px">
+                    @endif
+                </a>
                 <a href="{{route('logout')}}">Logout</a>
             @endauth
             @guest

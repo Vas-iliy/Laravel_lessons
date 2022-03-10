@@ -18,7 +18,7 @@ class Post extends Model
       'content' => 'Lorem ipsu,'
     ];*/
 
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['title', 'content', 'rubric_id'];
 
     public function rubric()
     {

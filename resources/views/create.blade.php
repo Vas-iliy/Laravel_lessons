@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <form class="md-5" method="post" action="{{route('post.store')}}">
+        <form class="mt-5" method="post" action="{{ route('post.store') }}">
             @csrf
             <div class="form-group">
                 <label for="exampleFormControlInput1">Title</label>
@@ -24,7 +24,6 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-
         </form>
     </div>
 @endsection

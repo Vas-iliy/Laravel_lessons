@@ -120,6 +120,7 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
+        Post::query()->create($request->all());
         return redirect()->route('home');
     }
 }

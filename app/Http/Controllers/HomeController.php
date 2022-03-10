@@ -7,6 +7,7 @@ use App\Post;
 use App\Rubric;
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -136,6 +137,11 @@ class HomeController extends Controller
         session()->flush();
 
         dump(session()->all());*/
+
+        //cookie
+        /*Cookie::queue('test', 'Test', 5);
+        Cookie::queue(Cookie::forget('test'));
+        dump(Cookie::get('test'));*/
 
         $title = 'Create Post';
         $rubrics = Rubric::query()->pluck('title', 'id')->all();

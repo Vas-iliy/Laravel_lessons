@@ -48,6 +48,9 @@
 
 <main role="main">
 
+    <div class="container">
+        @include('layouts.allerts')
+    </div>
     @yield('content')
 
 </main>

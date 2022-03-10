@@ -106,6 +106,7 @@ class HomeController extends Controller
         foreach ($tag->posts as $post) {
             dump($post->title);
         }*/
+
         $title = 'Home Page';
         $h1 = 'Home';
         $posts = Post::query()->orderBy('id', 'desc')->get();
@@ -114,6 +115,28 @@ class HomeController extends Controller
 
     public function create()
     {
+        //session
+        /*session(['test1' => 'test']);
+        session(['cart' => [
+            ['title' => 'product 1', 'desc' => 'fff'],
+            ['title' => 'product 2', 'desc' => 'fff'],
+        ]]);
+        dump(session('test'));
+
+        //добавление элемента в сессию
+        session()->push('cart', ['title' => 'product 3', 'desc' => 'ddd']);
+
+        //тение и удаление из сессии
+        dump(session()->pull('test'));
+
+        //удаление элемента из сессии
+        session()->forget('test1');
+
+        //очищение сессии
+        session()->flush();
+
+        dump(session()->all());*/
+
         $title = 'Create Post';
         $rubrics = Rubric::query()->pluck('title', 'id')->all();
         return view('create', compact('title', 'rubrics'));
@@ -127,6 +150,7 @@ class HomeController extends Controller
            'rubric_id' => 'integer'
         ]);
 
+        //message validate
         /*$rules = [
             'title' => 'required|min:5|max:255',
             'content' => 'required',
@@ -137,6 +161,7 @@ class HomeController extends Controller
         ];
         Validator::make($request->all(), $rules, $messages)->validate();*/
         Post::query()->create($request->all());
+        session()->flash('success', 'Yes!');
         return redirect()->route('home');
     }
 }

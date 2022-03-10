@@ -8,6 +8,7 @@ use App\Rubric;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -120,6 +121,21 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
+        /*$this->validate($request, [
+           'title' => 'required|min:5|max:255',
+           'content' => 'required',
+           'rubric_id' => 'integer'
+        ]);*/
+
+        /*$rules = [
+            'title' => 'required|min:5|max:255',
+            'content' => 'required',
+            'rubric_id' => 'integer'
+        ];
+        $messages = [
+            'title.required' => 'Заполните название'
+        ];
+        Validator::make($request->all(), $rules, $messages)->validate();*/
         Post::query()->create($request->all());
         return redirect()->route('home');
     }

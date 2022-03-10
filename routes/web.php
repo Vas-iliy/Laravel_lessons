@@ -79,6 +79,9 @@ Route::match(['get', 'post'], '/send', 'ContactController@send')->name('send');
 //Auth
 Route::get('/register', 'UserController@register')->name('register.create');
 Route::post('/register', 'UserController@store')->name('register.store');
+Route::get('/login', 'UserController@loginForm')->name('login.create');
+Route::post('/login', 'UserController@login')->name('login');
+Route::get('/logout', 'UserController@logout')->name('logout');
 
 
 

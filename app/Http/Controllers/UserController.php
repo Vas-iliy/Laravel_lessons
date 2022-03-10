@@ -17,7 +17,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:users',
+            'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed',
         ]);
@@ -28,6 +28,32 @@ class UserController extends Controller
         ]);
         session()->flash('success', 'Yes!');
         Auth::login($user);
+        return redirect()->home();
+    }
+
+    public function loginForm()
+    {
+        return view('user.login');
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        if(Auth::attempt([
+            'email' => $request->email,
+            'password' => $request->password,
+        ])) {
+            return redirect()->home();
+        }
+        return  redirect()->back()->with('error', 'Incorrect login or password');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
         return redirect()->home();
     }
 }

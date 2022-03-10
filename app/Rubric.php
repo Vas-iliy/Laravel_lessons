@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rubric extends Model
 {
-    public function post()
+    public function posts()
     {
-        return $this->hasOne(Post::class);
+        return $this->hasMany(Post::class);
     }
 }

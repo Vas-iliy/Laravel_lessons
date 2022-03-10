@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Country;
 use App\Post;
+use App\Rubric;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -60,20 +61,24 @@ class HomeController extends Controller
         $data = Country::query()->limit(5)->get();
         dd($data);*/
 
-        //update model
+        //update from model
         /*$post = Post::query()->find(4);
         $post->content = 'allalal';
         $post->save();
 
         Post::query()->where('id', '>', '2')->update(['updated_at' => NOW()]);*/
 
-        //delete model
+        //delete from model
         /*$post = Post::query()->find(4);
         $post->delete();
 
         Post::destroy(3);*/
 
-
+        //One to One
+        /*$post = Post::query()->find(2);
+        dump($post->title, $post->rubric->title);
+        $rubric = Rubric::query()->find(3);
+        dump($rubric->title, $rubric->post->title);*/
         return view('home');
     }
 

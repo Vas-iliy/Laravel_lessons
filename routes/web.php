@@ -77,14 +77,17 @@ Route::get('/page/about', 'PageController@show')->name('page.about');
 Route::match(['get', 'post'], '/send', 'ContactController@send')->name('send');
 
 //Auth
-Route::get('/register', 'UserController@register')->name('register.create');
-Route::post('/register', 'UserController@store')->name('register.store');
-Route::get('/login', 'UserController@loginForm')->name('login.create');
-Route::post('/login', 'UserController@login')->name('login');
-Route::get('/logout', 'UserController@logout')->name('logout');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/register', 'UserController@register')->name('register.create');
+    Route::post('/register', 'UserController@store')->name('register.store');
+    Route::get('/login', 'UserController@loginForm')->name('login.create');
+    Route::post('/login', 'UserController@login')->name('login');
+});
+
+Route::get('/logout', 'UserController@logout')->name('logout')->middleware('auth');
 
 //admin
-Route::get('/admin', 'Admin\MainController@index');
+Route::get('/admin', 'Admin\MainController@index')->middleware('admin');
 
 
 

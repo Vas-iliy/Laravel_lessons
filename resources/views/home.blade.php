@@ -1,11 +1,14 @@
 @extends('layouts.layout')
+
+@section('title')@parent :: {{$title}} @endsection
+
 @section('header')
     @parent
 @endsection
 @section('content')
 <section class="jumbotron text-center">
     <div class="container">
-        <h1 class="jumbotron-heading">Home Page</h1>
+        <h1 class="jumbotron-heading">{{$h1}}</h1>
     </div>
 </section>
 

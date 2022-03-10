@@ -104,7 +104,9 @@ class HomeController extends Controller
         foreach ($tag->posts as $post) {
             dump($post->title);
         }*/
-        return view('home');
+        $title = 'Home Page';
+        $h1 = 'Home';
+        return view('home', compact('title', 'h1'));
     }
 
     public function test()

@@ -83,6 +83,9 @@ Route::get('/login', 'UserController@loginForm')->name('login.create');
 Route::post('/login', 'UserController@login')->name('login');
 Route::get('/logout', 'UserController@logout')->name('logout');
 
+//admin
+Route::get('/admin', 'Admin\MainController@index');
+
 
 
 

@@ -72,4 +72,4 @@ Route::get('/create', 'HomeController@create')->name('post.create');
 Route::post('/store', 'HomeController@store')->name('post.store');
 
 Route::get('/page/about', 'PageController@show')->name('page.about');
-Route::get('/send', 'ContactController@send')->name('contact');
+Route::match(['get', 'post'], '/send', 'ContactController@send')->name('send');

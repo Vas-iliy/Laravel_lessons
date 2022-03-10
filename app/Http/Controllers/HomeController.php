@@ -106,7 +106,8 @@ class HomeController extends Controller
         }*/
         $title = 'Home Page';
         $h1 = 'Home';
-        return view('home', compact('title', 'h1'));
+        $posts = Post::query()->orderBy('id', 'desc')->get();
+        return view('home', compact('title', 'h1', 'posts'));
     }
 
     public function test()

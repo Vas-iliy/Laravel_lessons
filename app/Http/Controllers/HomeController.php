@@ -121,11 +121,11 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
-        /*$this->validate($request, [
+        $this->validate($request, [
            'title' => 'required|min:5|max:255',
            'content' => 'required',
            'rubric_id' => 'integer'
-        ]);*/
+        ]);
 
         /*$rules = [
             'title' => 'required|min:5|max:255',

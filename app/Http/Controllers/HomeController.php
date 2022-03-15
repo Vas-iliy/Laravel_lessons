@@ -128,7 +128,7 @@ class HomeController extends Controller
         /*if (Cache::has('posts')) {
             $posts = Cache::get('posts');
         } else {
-            $posts = Post::query()->orderBy('id', 'desc')->get();
+            $posts = Post::query()->orderBy('id', 'desc')->paginate(3);
             Cache::put('posts', $posts);
         }*/
         $posts = Post::query()->orderBy('id', 'desc')->paginate(3);
